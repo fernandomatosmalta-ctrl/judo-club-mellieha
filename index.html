@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Judo Club Mellieħa — Study Tool</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #000; font-family: Georgia, serif; }
+    body { background: #111318; font-family: 'Poppins', sans-serif; }
     a { text-decoration: none; }
   </style>
 </head>
@@ -420,13 +421,13 @@ function App() {
   const styles = {
     app: {
       minHeight: "100vh",
-      background: "#000000",
-      fontFamily: "'Georgia', serif",
-      color: "#f0f0f0",
+      background: "#111318",
+      fontFamily: "'Poppins', sans-serif",
+      color: "#e8e8e8",
       padding: "0",
     },
     header: {
-      background: "#0a0a0a",
+      background: "#0d0f14",
       padding: "2rem 1.5rem 1rem",
       textAlign: "center",
       borderBottom: "2px solid #c9a800",
@@ -448,10 +449,10 @@ function App() {
     container: { maxWidth: "800px", margin: "0 auto", padding: "1.5rem" },
     sectionTitle: {
       fontSize: "0.75rem",
-      letterSpacing: "0.3em",
+      letterSpacing: "0.2em",
       textTransform: "uppercase",
-      color: "#666",
-      marginBottom: "1rem",
+      color: "#9a9fb0",
+      marginBottom: "0.5rem",
     },
     beltGrid: {
       display: "grid",
@@ -462,11 +463,11 @@ function App() {
     beltBtn: (b) => ({
       padding: "0.9rem 1rem",
       borderRadius: "6px",
-      border: `2px solid ${selectedBelt === b.id ? b.accent : "#222"}`,
-      background: selectedBelt === b.id ? "#111" : "#0d0d0d",
-      color: selectedBelt === b.id ? b.color : "#666",
+      border: `2px solid ${selectedBelt === b.id ? b.accent : "#2a2d35"}`,
+      background: selectedBelt === b.id ? "#1e2130" : "#161920",
+      color: selectedBelt === b.id ? b.color : "#9a9fb0",
       cursor: "pointer",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Poppins', sans-serif",
       fontSize: "0.9rem",
       fontWeight: selectedBelt === b.id ? "bold" : "normal",
       textAlign: "left",
@@ -486,12 +487,12 @@ function App() {
     viewAllBtn: {
       width: "100%",
       padding: "0.7rem",
-      background: viewAll ? "#111" : "#0d0d0d",
-      border: `1px solid ${viewAll ? "#c9a800" : "#222"}`,
-      color: viewAll ? "#c9a800" : "#555",
+      background: viewAll ? "#1e2130" : "#161920",
+      border: `1px solid ${viewAll ? "#c9a800" : "#2a2d35"}`,
+      color: viewAll ? "#c9a800" : "#9a9fb0",
       borderRadius: "6px",
       cursor: "pointer",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Poppins', sans-serif",
       fontSize: "0.85rem",
       marginBottom: "2rem",
       letterSpacing: "0.1em",
@@ -505,26 +506,26 @@ function App() {
     modeBtn: (m) => ({
       padding: "1.2rem 0.5rem",
       borderRadius: "8px",
-      border: `2px solid ${mode === m ? "#c9a800" : "#222"}`,
-      background: mode === m ? "#111" : "#0d0d0d",
-      color: mode === m ? "#c9a800" : "#555",
+      border: `2px solid ${mode === m ? "#c9a800" : "#2a2d35"}`,
+      background: mode === m ? "#1e2130" : "#161920",
+      color: mode === m ? "#c9a800" : "#9a9fb0",
       cursor: "pointer",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Poppins', sans-serif",
       fontSize: "0.85rem",
       textAlign: "center",
       transition: "all 0.2s",
     }),
     modeIcon: { fontSize: "1.5rem", display: "block", marginBottom: "0.3rem" },
     card: {
-      background: "#0d0d0d",
-      border: "1px solid #222",
+      background: "#1a1d24",
+      border: "1px solid #2a2d35",
       borderRadius: "8px",
       padding: "1rem",
       marginBottom: "0.75rem",
     },
-    techName: { color: "#c9a800", fontWeight: "bold", fontSize: "1rem", marginBottom: "0.2rem" },
-    techType: { color: "#555", fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: "0.4rem" },
-    techDesc: { color: "#aaa", fontSize: "0.85rem", lineHeight: 1.5 },
+    techName: { color: "#c9a800", fontWeight: "600", fontSize: "1rem", marginBottom: "0.2rem" },
+    techType: { color: "#7a7f90", fontSize: "0.75rem", letterSpacing: "0.15em", marginBottom: "0.4rem" },
+    techDesc: { color: "#c8ccd8", fontSize: "0.88rem", lineHeight: 1.6 },
     beltTag: (b) => {
       const bObj = BELTS.find(x => x.id === b);
       return {
@@ -544,7 +545,7 @@ function App() {
       display: "flex",
       gap: "0.5rem",
       marginBottom: "1.5rem",
-      borderBottom: "1px solid #222",
+      borderBottom: "1px solid #2a2d35",
       paddingBottom: "0",
     },
     tab: (active) => ({
@@ -552,65 +553,65 @@ function App() {
       background: "none",
       border: "none",
       borderBottom: active ? "2px solid #c9a800" : "2px solid transparent",
-      color: active ? "#c9a800" : "#555",
+      color: active ? "#c9a800" : "#9a9fb0",
       cursor: "pointer",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Poppins', sans-serif",
       fontSize: "0.85rem",
       marginBottom: "-1px",
-      letterSpacing: "0.1em",
+      letterSpacing: "0.05em",
     }),
     navRow: { display: "flex", gap: "0.75rem", justifyContent: "center", marginTop: "1rem" },
     navBtn: {
       padding: "0.6rem 1.5rem",
-      background: "#0d0d0d",
-      border: "1px solid #222",
-      color: "#666",
+      background: "#1a1d24",
+      border: "1px solid #2a2d35",
+      color: "#9a9fb0",
       borderRadius: "6px",
       cursor: "pointer",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Poppins', sans-serif",
       fontSize: "0.85rem",
     },
-    quizQ: { fontSize: "1.05rem", color: "#f0f0f0", marginBottom: "1.5rem", lineHeight: 1.5 },
+    quizQ: { fontSize: "1.05rem", color: "#e8e8e8", marginBottom: "1.5rem", lineHeight: 1.6 },
     optBtn: (i, ans, correct) => {
-      let bg = "#0d0d0d";
-      let border = "#222";
-      let color = "#aaa";
+      let bg = "#1a1d24";
+      let border = "#2a2d35";
+      let color = "#c8ccd8";
       if (ans !== null) {
-        if (i === correct) { bg = "rgba(80,180,80,0.1)"; border = "#50b450"; color = "#80e480"; }
-        else if (i === ans) { bg = "rgba(180,60,60,0.1)"; border = "#b43c3c"; color = "#e48080"; }
+        if (i === correct) { bg = "rgba(80,180,80,0.15)"; border = "#50b450"; color = "#80e480"; }
+        else if (i === ans) { bg = "rgba(180,60,60,0.15)"; border = "#b43c3c"; color = "#e48080"; }
       }
       return {
         width: "100%", textAlign: "left", padding: "0.9rem 1rem",
         background: bg, border: `1px solid ${border}`, color,
         borderRadius: "6px", cursor: ans === null ? "pointer" : "default",
-        fontFamily: "'Georgia', serif", fontSize: "0.9rem",
+        fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem",
         marginBottom: "0.5rem", transition: "all 0.2s",
       };
     },
     score: { textAlign: "center", padding: "2rem" },
     scoreBig: { fontSize: "3rem", color: "#c9a800", fontWeight: "bold" },
-    scoreMsg: { color: "#666", marginTop: "0.5rem" },
+    scoreMsg: { color: "#9a9fb0", marginTop: "0.5rem" },
     retryBtn: {
       marginTop: "1.5rem",
       padding: "0.8rem 2rem",
-      background: "#111",
+      background: "#1a1d24",
       border: "1px solid #c9a800",
       color: "#c9a800",
       borderRadius: "6px",
       cursor: "pointer",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Poppins', sans-serif",
       fontSize: "0.9rem",
     },
-    emptyMsg: { color: "#444", textAlign: "center", padding: "2rem", fontSize: "0.9rem" },
+    emptyMsg: { color: "#555", textAlign: "center", padding: "2rem", fontSize: "0.9rem" },
     videoBtn: {
       marginTop: "0.6rem",
       padding: "0.4rem 0.9rem",
-      background: "#111",
+      background: "#1a1d24",
       border: "1px solid #c9a800",
       color: "#c9a800",
       borderRadius: "4px",
       cursor: "pointer",
-      fontFamily: "'Georgia', serif",
+      fontFamily: "'Poppins', sans-serif",
       fontSize: "0.8rem",
       display: "inline-flex",
       alignItems: "center",
