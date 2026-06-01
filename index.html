@@ -649,7 +649,8 @@ function App() {
 
       <div style={styles.container}>
         {/* Belt Selection */}
-        <p style={styles.sectionTitle}>Select your current belt</p>
+        <p style={styles.sectionTitle}>Which belt are you preparing for?</p>
+        <p style={{ fontSize: "0.75rem", color: "#555", marginBottom: "1rem", fontStyle: "italic" }}>All previous belt content is included — just as in the real exam.</p>
         <div style={styles.beltGrid}>
           {BELTS.map(b => (
             <button key={b.id} style={styles.beltBtn(b)}
