@@ -486,7 +486,7 @@ function App() {
             <img src={LOGO} alt="Logo" style={{ width:"120px", height:"120px", objectFit:"contain", marginBottom:"0.5rem" }} />
           </div>
           <h1 style={{ fontSize:"2rem", fontWeight:"700", letterSpacing:"0.1em", color:"#c9a800", margin:0 }}>JUDO CLUB MELLIEĦA</h1>
-          <p style={{ fontSize:"0.8rem", color:"#666", letterSpacing:"0.25em", marginTop:"0.3rem", textTransform:"uppercase" }}>Malta Judo Federation · Study Tool</p>
+          <p style={{ fontSize:"0.8rem", color:"#666", letterSpacing:"0.25em", marginTop:"0.3rem", textTransform:"uppercase" }}>Malta Judo Federation<br />Study Tool</p>
           <p style={{ fontSize:"0.6rem", color:"#444", letterSpacing:"0.15em", marginTop:"0.4rem" }}>Created & Designed by Fernando Matos</p>
         </div>
         <div style={{ maxWidth:"800px", margin:"0 auto", padding:"1.5rem" }}>
@@ -560,13 +560,16 @@ function App() {
         {/* STUDY GUIDE */}
         {mode === "study" && (
           <>
-            <div style={{ display:"flex", gap:"0.5rem", marginBottom:"1.5rem", borderBottom:"1px solid #2a2d35" }}>
-              {[["throws","Throws"],["groundwork","Groundwork"],["terminology","Terminology"],["rules","Rules"]].map(([t,label]) => (
+            <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"0.5rem", marginBottom:"1.5rem" }}>
+              {[["throws","🥋 Throws"],["groundwork","🤼 Groundwork"],["terminology","🇯🇵 Terminology"],["rules","📋 Rules"]].map(([t,label]) => (
                 <button key={t} onClick={() => setStudyTab(t)} style={{
-                  padding:"0.6rem 1rem", background:"none", border:"none",
-                  borderBottom: studyTab===t ? "2px solid #c9a800" : "2px solid transparent",
+                  padding:"0.6rem 0.5rem", background: studyTab===t ? "#1e2130" : "#161920",
+                  border:"1px solid " + (studyTab===t ? "#c9a800" : "#2a2d35"),
+                  borderRadius:"6px",
                   color: studyTab===t ? "#c9a800" : "#9a9fb0",
-                  cursor:"pointer", fontFamily:"'Poppins',sans-serif", fontSize:"0.82rem", marginBottom:"-1px"
+                  cursor:"pointer", fontFamily:"'Poppins',sans-serif", fontSize:"0.82rem",
+                  fontWeight: studyTab===t ? "600" : "400",
+                  textAlign:"center", transition:"all 0.2s"
                 }}>{label}</button>
               ))}
             </div>
