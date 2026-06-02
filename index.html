@@ -554,7 +554,7 @@ function App() {
         <button style={S.backBtn} onClick={goToHome}>← Back</button>
         <div style={{ textAlign: "center" }}>
           <div style={{ ...S.title, fontSize: "1rem" }}>JUDO CLUB MELLIEĦA</div>
-          <div style={{ fontSize: "0.7rem", color: "#c9a800", marginTop: "0.1rem" }}>
+          <div style={{ fontSize: "0.7rem", color: viewAll ? "#c9a800" : (belt?.color || "#c9a800"), marginTop: "0.1rem", fontWeight: "600" }}>
             {viewAll ? "All Belts" : belt?.label}
           </div>
         </div>
