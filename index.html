@@ -403,6 +403,8 @@ function App() {
   const [quizScore, setQuizScore] = useState(0);
   const [quizDone, setQuizDone] = useState(false);
 
+  const resetQuiz = () => { setQuizIdx(0); setQuizAnswer(null); setQuizScore(0); setQuizDone(false); };
+
   const [revealedTerms, setRevealedTerms] = useState({});
   const toggleTerm = (i) => setRevealedTerms(prev => ({ ...prev, [i]: !prev[i] }));
 
