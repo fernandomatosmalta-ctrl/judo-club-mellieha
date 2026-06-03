@@ -403,21 +403,22 @@ function App() {
   const [quizScore, setQuizScore] = useState(0);
   const [quizDone, setQuizDone] = useState(false);
 
-  const resetQuiz = () => { setQuizIdx(0); setQuizAnswer(null); setQuizScore(0); setQuizDone(false); };
+  const [revealedTerms, setRevealedTerms] = useState({});
+  const toggleTerm = (i) => setRevealedTerms(prev => ({ ...prev, [i]: !prev[i] }));
 
   const goToStudy = (beltId) => {
     setSelectedBelt(beltId); setViewAll(false);
     setMode("study"); setStudyTab("throws");
-    resetQuiz(); setScreen("study");
+    resetQuiz(); setRevealedTerms({}); setScreen("study");
   };
   const goAllBelts = () => {
     setViewAll(true); setSelectedBelt(null);
     setMode("study"); setStudyTab("throws");
-    resetQuiz(); setScreen("study");
+    resetQuiz(); setRevealedTerms({}); setScreen("study");
   };
   const goToHome = () => {
     setScreen("home"); setSelectedBelt(null);
-    setViewAll(false); setMode("study");
+    setViewAll(false); setMode("study"); setRevealedTerms({});
   };
 
   const getBelts = () => {
@@ -600,7 +601,17 @@ function App() {
                   <div style={beltTag(t.belt)}>{BELTS.find(b=>b.id===t.belt)?.label}</div>
                   <div style={techName}>{t.jp}</div>
                 </div>
-                <div style={{ color:"#c8ccd8", fontSize:"0.9rem", textAlign:"right" }}>{t.en}</div>
+                <div style={{ textAlign:"right" }}>
+                  {revealedTerms[i]
+                    ? <div style={{ color:"#c8ccd8", fontSize:"0.9rem", cursor:"pointer" }} onClick={() => toggleTerm(i)}>{t.en}</div>
+                    : <button onClick={() => toggleTerm(i)} style={{
+                        padding:"0.3rem 0.8rem", background:"#1e2130",
+                        border:"1px solid #c9a800", color:"#c9a800",
+                        borderRadius:"4px", cursor:"pointer",
+                        fontFamily:"'Poppins',sans-serif", fontSize:"0.78rem"
+                      }}>View</button>
+                  }
+                </div>
               </div>
             ))}
 
